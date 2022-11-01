@@ -1,6 +1,6 @@
-<h1>Cows#new</h1>
-<p>Find me in app/views/cows/new.html.erb</p>
-<div class="container">
+<div class="conainer">
+  <h1>Edit</h1>
+  <%= link_to "Back to Show", cow_path(@cow) %>
   <%= simple_form_for(@cow) do |f| %>
     <%= f.input :name  %>
     <%= f.input :description  %>
