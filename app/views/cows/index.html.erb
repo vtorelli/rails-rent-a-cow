@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>All the cows</h1>
+  <ul>
+    <% @cows.each do |cow| %>
+      <h2>Name : <%= cow.name %></h2>
+      <p>Description : <%= cow.description %></p>
+      <h3>Price : <%= cow.price_per_day %>€</h3>
+      <hr>
+    <% end %>
+  </ul>
+
+  <%= link_to "Back Home", root_path %>
+</div>
