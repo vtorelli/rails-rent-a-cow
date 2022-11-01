@@ -1,0 +1,11 @@
+<div class="conainer">
+  <h1>Edit</h1>
+  <%= link_to "Back to Show", cow_path(@cow) %>
+  <%= simple_form_for(@cow) do |f| %>
+    <%= f.input :name  %>
+    <%= f.input :description  %>
+    <%= f.input :price_per_day  %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>

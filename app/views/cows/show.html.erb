@@ -1,0 +1,12 @@
+<div class="container">
+  <%= link_to "Back to all cows", cows_path %>
+  <h2>Name : <%= @cow.name %></h2>
+  <p>Description : <%= @cow.description %></p>
+  <h3>Price : <%= @cow.price_per_day %>€</h3>
+  <%= cl_image_tag @cow.photo.key, height: 300, width: 400, crop: :fill %>
+
+  <br>
+
+  <%= link_to "Edit", edit_cow_path(@cow) %>
+</div>
+

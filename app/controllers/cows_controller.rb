@@ -18,7 +18,26 @@ class CowsController < ApplicationController
     end
   end
 
+  def show
+    @cow = Cow.find(params[:id])
+  end
+
+  def edit
+    @cow = Cow.find(params[:id])
+  end
+
+  def update
+    @cow = Cow.find(params[:id])
+    if @cow.update(cow_params)
+      redirect_to cow_path(@cow)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
+
+
 
   def cow_params
     params.require(:cow).permit(:name, :description, :price_per_day, :photo)

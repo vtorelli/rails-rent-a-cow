@@ -1,5 +1,8 @@
 <div class="container">
   <h1>All the cows</h1>
+  <%= link_to "Back Home", root_path %>
+  <%= link_to "New Cow", new_cow_path  %>
+  <hr>
   <ul>
     <% @cows.each do |cow| %>
       <h2>Name : <%= cow.name %></h2>
@@ -8,10 +11,9 @@
       <% if cow.photo.key %>
         <%= cl_image_tag cow.photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
+      <br>
+      <%= link_to "Show", cow_path(cow) %>
       <hr>
     <% end %>
   </ul>
-
-  <%= link_to "Back Home", root_path %>
-  <%= link_to "New Cow", new_cow_path  %>
 </div>
