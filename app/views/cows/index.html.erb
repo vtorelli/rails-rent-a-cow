@@ -5,9 +5,13 @@
       <h2>Name : <%= cow.name %></h2>
       <p>Description : <%= cow.description %></p>
       <h3>Price : <%= cow.price_per_day %>€</h3>
+      <% if cow.photo.key %>
+        <%= cl_image_tag cow.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
       <hr>
     <% end %>
   </ul>
 
   <%= link_to "Back Home", root_path %>
+  <%= link_to "New Cow", new_cow_path  %>
 </div>

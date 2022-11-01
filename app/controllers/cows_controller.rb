@@ -12,7 +12,7 @@ class CowsController < ApplicationController
     @cow = Cow.new(cow_params)
     if @cow.save
       #redirect_to list_path(@list)
-      redirect_to new_cow_path
+      redirect_to cows_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,6 +21,6 @@ class CowsController < ApplicationController
   private
 
   def cow_params
-    params.require(:cow).permit(:name, :description, :price_per_day, :image_url)
+    params.require(:cow).permit(:name, :description, :price_per_day, :image_url, :photo)
   end
 end
