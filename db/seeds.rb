@@ -21,18 +21,18 @@ num = 0
 
 puts "Create Cows..."
 images_cows.shuffle.each do |image|
+
   cow = Cow.new(
     name: Faker::Name.middle_name,
     description: Faker::Lorem.paragraph(sentence_count: 3),
     price_per_day: [10, 30, 50, 80, 100].sample,
-    user_id: 1
+    user_id: 2
   )
 
   cow.photo.attach(
   filename: "Cow#{num}.jpg",
   io: URI.open(image)
 )
-
 
   puts "Create a cow(#{num}): #{cow.name}"
   cow.save!
