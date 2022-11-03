@@ -39,3 +39,4 @@ images_cows.shuffle.each do |image|
   num += 1
 end
 puts "End of creation of Cows."
+
