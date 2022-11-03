@@ -36,6 +36,12 @@ class CowsController < ApplicationController
     end
   end
 
+  def destroy
+    @cow = Cow.find(params[:id])
+    @cow.destroy
+    redirect_to root_path, status: :see_other
+  end
+
   private
 
 
