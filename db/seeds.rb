@@ -14,12 +14,19 @@ images_cows = [
   "https://images.unsplash.com/photo-1556997685-309989c1aa82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80",
   "https://images.unsplash.com/photo-1595365691689-6b7b4e1970cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1365&q=80",
   "https://images.unsplash.com/photo-1607771459220-36163d88974c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1288&q=80",
-  "https://images.unsplash.com/photo-1611520555193-151e472b7f6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1365&q=80"
+  "https://images.unsplash.com/photo-1611520555193-151e472b7f6e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1365&q=80",
+  "https://images.unsplash.com/photo-1594661387748-1155d9a8c7a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80",
+  "https://images.unsplash.com/photo-1584977036035-ed7f68721bde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
+  "https://images.unsplash.com/photo-1594731884638-8197c3102d1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80",
+  "https://images.unsplash.com/photo-1634992798921-b968401c7b75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+  "https://images.unsplash.com/photo-1563898159-f139a1719f52?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+  "https://images.unsplash.com/photo-1545185615-ba60d5cd6862?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+  "https://images.unsplash.com/photo-1604250757408-8602c89b4f80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1264&q=80",
 ]
 
 num = 0
 
-puts "Creating Cows..."
+puts "Creating the cows..."
 
 User.new(
   email: Faker::Internet.email,
@@ -39,8 +46,8 @@ images_cows.shuffle.each do |image|
   io: URI.open(image)
 )
 
-  puts "Create a cow(#{num}): #{cow.name}"
+  puts "Create cow n.#{num}): #{cow.name}"
   cow.save!
   num += 1
 end
-puts "End of creation of Cows."
+puts "Finished creating cows."
