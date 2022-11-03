@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     end
   end
 
+
+  resources :bookings, only: [:index, :show, :edit, :update]
   devise_for :users
   root to: "pages#home"
 end
