@@ -11,6 +11,7 @@ class CowsController < ApplicationController
   def create
     @cow = Cow.new(cow_params)
     @cow.user_id = current_user.id
+
     if @cow.save
       #redirect_to list_path(@list)
       redirect_to cows_path
@@ -25,10 +26,13 @@ class CowsController < ApplicationController
 
   def edit
     @cow = Cow.find(params[:id])
+    cows_authorization(@cow)
   end
 
   def update
     @cow = Cow.find(params[:id])
+    cows_authorization(@cow)
+
     if @cow.update(cow_params)
       redirect_to cow_path(@cow)
     else
@@ -38,6 +42,8 @@ class CowsController < ApplicationController
 
   def destroy
     @cow = Cow.find(params[:id])
+    cows_authorization(@cow)
+
     @cow.destroy
     redirect_to root_path, status: :see_other
   end
@@ -48,7 +54,11 @@ class CowsController < ApplicationController
 
   private
 
-
+  def cows_authorization(cow)
+    if cow.user_id != current_user.id
+      redirect_to root_path
+    end
+  end
 
   def cow_params
     params.require(:cow).permit(:name, :description, :price_per_day, :photo)
