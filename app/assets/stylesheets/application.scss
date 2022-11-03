@@ -13,11 +13,14 @@
 @import "components/navbar";
 @import "components/buttons";
 @import "components/hero_homepage_banner";
+@import "components/footer";
 
+body {
+  background-color: #F1FAEE;
+}
 .wrapper {
   margin: auto;
 }
-
 a {
   text-decoration: none;
 }
