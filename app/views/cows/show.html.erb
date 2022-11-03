@@ -8,5 +8,9 @@
   <br>
 
   <%= link_to "Edit", edit_cow_path(@cow) %>
+  <%= link_to "Delete",
+    cow_path(@cow),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
 </div>
 

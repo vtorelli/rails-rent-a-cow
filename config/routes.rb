@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :cows, only: [:index, :new, :create, :show, :edit, :update]
+  resources :cows
 
   devise_for :users
   root to: "pages#home"
