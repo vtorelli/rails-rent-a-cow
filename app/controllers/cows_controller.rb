@@ -42,6 +42,10 @@ class CowsController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def mycows
+    @cows = Cow.where(user_id: current_user.id)
+  end
+
   private
 
 
