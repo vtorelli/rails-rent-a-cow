@@ -1,16 +1,17 @@
 .login-button {
   border-radius: 8px;
   background-color: #2b2d42;
-  color: white;
   height: 50px;
   width: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
+  a {
+    color: white;
+  }
 }
 .login-button:hover {
   text-decoration: none;
   background-color: #d80032;
-  color: white;
   cursor: pointer;
 }
