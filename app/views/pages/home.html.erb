@@ -1,12 +1,12 @@
 <div class="wrapper">
   <div class="hero-homepage-banner">
       <div class="hero-banner-title">
-        <h1>Rent-A-Cow</h1>
-      <p>find your new temporary friend</p>
+        <h1>RENT-A-COW</h1>
+      <p>Need to mow your lawn? Filming a commercial? Need emotional support? Say no more!</p>
     </div>
 
     <% if user_signed_in? %>
-      <p>Hello <%= current_user.email %></p>
+      <p class="user-greeting">hello <%= current_user.first_name %>!</p>
     <% else %>
 
       <p class="login-button">
@@ -15,6 +15,7 @@
     <% end %>
   </div>
 </div>
-<div class="container">
+
+<div class="page-content">
   <%= render "shared/allcows" %>
 </div>
