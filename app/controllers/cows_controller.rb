@@ -10,6 +10,7 @@ class CowsController < ApplicationController
 
   def create
     @cow = Cow.new(cow_params)
+    @cow.user_id = current_user.id
     if @cow.save
       #redirect_to list_path(@list)
       redirect_to cows_path
