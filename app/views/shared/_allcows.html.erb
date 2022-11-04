@@ -1,27 +1,17 @@
-
-
-
-  <%# link_to "New Cow", new_cow_path  %>
-  <%# <hr> %>
-
-    <ul class="cards">
-    <% @cows.each do |cow| %>
-      <div class="cow-card">
-        <% if cow.photo.key %>
-          <%= cl_image_tag cow.photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-
-        <div class="cow-card-infos">
-          <div>
-            <h2><%= cow.name %></h2>
-            <p><%= cow.description %></p>
-          </div>
-
-          <h3 class="cow-card-pricing"><%= cow.price_per_day %>€</h3>
-
-          <%= image_tag "user.png", class: "cow-card-user avatar-bordered" %>
-
+<ul class="cards">
+  <% @cows.each do |cow| %>
+    <div class="cow-card">
+      <% if cow.photo.key %>
+        <%= cl_image_tag cow.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+      <div class="cow-card-infos">
+        <div>
+          <h2><%= cow.name %></h2>
+          <p><%= cow.description %></p>
         </div>
+        <h3 class="cow-card-pricing"><%= cow.price_per_day %>€</h3>
+        <%= image_tag "user.png", class: "cow-card-user avatar-bordered" %>
       </div>
-    <% end %>
-  </ul>
+    </div>
+  <% end %>
+</ul>
