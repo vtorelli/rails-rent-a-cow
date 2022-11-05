@@ -1,9 +1,8 @@
 class BookingsController < ApplicationController
-  before_action :set_cow, only: [:new, :create]
-  before_action :set_booking, only: [:destroy]
+  before_action :set_cow, only: [:new, :create, :edit, :update]
+  before_action :set_booking, only: [:edit, :update, :destroy]
 
   def new
-    # @cow = Cow.find(params[:cow_id])
     @booking = Booking.new()
   end
 
@@ -15,6 +14,17 @@ class BookingsController < ApplicationController
       redirect_to user_bookings_path
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @booking.update(booking_params)
+      redirect_to user_bookings_path
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
