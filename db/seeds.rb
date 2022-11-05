@@ -1,5 +1,8 @@
 puts "Cleaning database..."
+Booking.destroy_all
 Cow.destroy_all
+User.destroy_all
+
 # Bookings.destroy_all
 
 images_cows = [
@@ -28,10 +31,16 @@ num = 0
 
 puts "Creating the cows..."
 
-User.new(
+user = User.new(
   email: Faker::Internet.email,
-  password: "password"
+  password: "password",
+  first_name: "Marion",
+  last_name: "Cotillard"
 )
+
+user.save!
+puts "created #{user.first_name}"
+
 
 images_cows.shuffle.each do |image|
   cow = Cow.new(
