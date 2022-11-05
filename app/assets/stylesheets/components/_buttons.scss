@@ -15,3 +15,16 @@
   background-color: #d80032;
   cursor: pointer;
 }
+
+.sign-in-btn{
+  border-radius: 8px;
+  background-color: #1D3557;
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  a {
+    color: #F1FAEE;
+  }
+}
