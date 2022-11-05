@@ -13,6 +13,11 @@
           <h3 class="cow-card-pricing"><%= cow.price_per_day %>€</h3>
           <%= image_tag "user.png", class: "cow-card-user avatar-bordered" %>
         </div>
+        <%= link_to "Edit" , edit_cow_path(cow) %>
+        <%= link_to "Delete",
+            cow_path(cow),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
       </div>
     <% end %>
   <% end %>

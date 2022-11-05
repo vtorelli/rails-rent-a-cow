@@ -33,9 +33,9 @@ class CowsController < ApplicationController
     cows_authorization(@cow)
 
     if @cow.update(cow_params)
-      redirect_to cow_path(@cow)
+      redirect_to mycows_cows_path
     else
-      render :new, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -44,7 +44,7 @@ class CowsController < ApplicationController
     cows_authorization(@cow)
 
     @cow.destroy
-    redirect_to root_path, status: :see_other
+    redirect_to mycows_cows_path, status: :see_other
   end
 
   def mycows
