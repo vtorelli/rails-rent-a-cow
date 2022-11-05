@@ -3,7 +3,9 @@ Booking.destroy_all
 Cow.destroy_all
 User.destroy_all
 
-
+puts " "
+puts "Database deleted successfully."
+puts " "
 puts "Creating Users..."
 
 array_users = [
@@ -32,7 +34,8 @@ array_users.each do |user|
 
   puts "User (#{user_new.email}) created"
 end
-puts "End of creation of Users."
+puts " "
+puts "Users created succesfully."
 
 images_cows = [
   "https://images.unsplash.com/photo-1564677349626-2de4b8274089?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1734&q=80",
@@ -58,6 +61,7 @@ images_cows = [
 
 num = 0
 
+puts " "
 puts "Creating the cows..."
 
 def faker_name()
@@ -85,8 +89,10 @@ images_cows.shuffle.each do |image|
   cow.save!
   num += 1
 end
-puts "End of creation of Cows."
 
+puts " "
+puts "Cows created successfully."
+puts " "
 puts "Creating Bookings..."
 
 Booking.create!(
@@ -96,5 +102,5 @@ Booking.create!(
   user: User.find_by(first_name: "Astrid"),
   cow: Cow.all[0]
 )
-
-puts "End of creation of Bookings."
+puts " "
+puts "Bookings created successfully."
