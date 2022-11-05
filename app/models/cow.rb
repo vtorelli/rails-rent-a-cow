@@ -1,5 +1,6 @@
 class Cow < ApplicationRecord
   has_many :bookings
+  belongs_to :user
 
   validates :name, presence: true, uniqueness: true
   validates :description, length: { minimum: 3 }

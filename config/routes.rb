@@ -3,10 +3,12 @@ Rails.application.routes.draw do
     collection do
       get :mycows, as: :mycows
     end
+
+    resources :bookings, only: [:new, :create, :index, :show, :edit, :update]
   end
 
+  get "bookings/user_bookings", to: "bookings#user_bookings", as: :user_bookings
 
-  resources :bookings, only: [:index, :show, :edit, :update]
   devise_for :users
   root to: "pages#home"
 end

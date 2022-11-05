@@ -5,5 +5,4 @@ class Booking < ApplicationRecord
   validates :start_date, presence: true
   validates :duration, numericality: { only_integer: true }, presence: true
   validates :location, presence: true
-  validates :total_cost, numericality: { only_integer: true }
 end
