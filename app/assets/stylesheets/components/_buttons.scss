@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   a {
-    color: #F1FAEE;
+    color: $white;
   }
 }
 .login-button:hover {
@@ -15,7 +15,6 @@
   background-color: $red;
   cursor: pointer;
 }
-
 .sign-in-btn{
   border-radius: 8px;
   background-color: $navy;
@@ -24,7 +23,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  a {
-    color: #F1FAEE;
-  }
+  color: $white;
+}
+.sign-in-btn:hover {
+  color: $white;
+  background-color: $red;
 }
