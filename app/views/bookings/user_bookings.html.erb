@@ -1,0 +1,16 @@
+<h1>User_bookings</h1>
+
+<div class="container">
+  <% @bookings.each do |booking| %>
+    <%= cl_image_tag booking.cow.photo.key, height: 300, width: 400, crop: :fill %>
+    <h2>Start Date : <%= booking.start_date %></h2>
+    <p>Duration : <%= booking.duration %> days</p>
+    <p>Location : <%= booking.location %></p>
+    <h3>Cow</h3>
+    <p>Name : <%= booking.cow.name %></p>
+    <p>Description : <%= booking.cow.description %></p>
+    <h3>Owner name : <%= booking.cow.user.first_name %> <%= booking.cow.user.last_name %></h3>
+    <h2>Price : <%= booking.duration %>d * <%= booking.cow.price_per_day %>€  = <%= booking.cow.price_per_day * booking.duration %> €</h2>
+    <hr>
+  <% end %>
+</div>
