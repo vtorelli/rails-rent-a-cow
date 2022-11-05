@@ -68,10 +68,6 @@ def faker_name()
 end
 
 
-user.save!
-puts "created #{user.first_name}"
-
-
 images_cows.shuffle.each do |image|
   cow = Cow.new(
     name: faker_name,
