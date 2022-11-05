@@ -1,6 +1,38 @@
 puts "Cleaning database..."
+Booking.destroy_all
 Cow.destroy_all
-# Bookings.destroy_all
+User.destroy_all
+
+
+puts "Creating Users..."
+
+array_users = [
+  {
+    first_name: "Sebastien",
+    last_name: "Saunier",
+    email: "seb@lewagon.com",
+    password: "lewagon"
+  },
+  {
+    first_name: "Astrid",
+    last_name: "Cow",
+    email: "astrid@lewagon.com",
+    password: "lewagon"
+  },
+  {
+    first_name: "Nicolas",
+    last_name: "Blanchard",
+    email: "nicolas@lewagon.com",
+    password: "lewagon"
+  }
+]
+
+array_users.each do |user|
+  user_new = User.create!(user)
+
+  puts "User (#{user_new.email}) created"
+end
+puts "End of creation of Users."
 
 images_cows = [
   "https://images.unsplash.com/photo-1564677349626-2de4b8274089?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1734&q=80",
@@ -21,17 +53,20 @@ num = 0
 
 puts "Creating Cows..."
 
-User.new(
-  email: Faker::Internet.email,
-  password: "password"
-)
+def faker_name()
+  loop do
+    cow_name = Faker::Name.middle_name
+    return cow_name if !cow_name.in? Cow.all.pluck(:name)
+  end
+end
+
 
 images_cows.shuffle.each do |image|
   cow = Cow.new(
-    name: Faker::Name.middle_name,
+    name: faker_name,
     description: Faker::Lorem.paragraph(sentence_count: 3),
     price_per_day: [10, 30, 50, 80, 100].sample,
-    user_id: 1
+    user: User.first
   )
 
   cow.photo.attach(
@@ -44,3 +79,15 @@ images_cows.shuffle.each do |image|
   num += 1
 end
 puts "End of creation of Cows."
+
+puts "Creating Bookings..."
+
+Booking.create!(
+  start_date: "2022-02-02",
+  duration: 2,
+  location: "Brussels",
+  user: User.find_by(first_name: "Astrid"),
+  cow: Cow.all[0]
+)
+
+puts "End of creation of Bookings."
