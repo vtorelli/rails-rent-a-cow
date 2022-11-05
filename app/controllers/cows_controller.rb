@@ -13,8 +13,7 @@ class CowsController < ApplicationController
     @cow.user_id = current_user.id
 
     if @cow.save
-      #redirect_to list_path(@list)
-      redirect_to cows_path
+      redirect_to mycows_cows_path
     else
       render :new, status: :unprocessable_entity
     end
