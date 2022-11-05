@@ -32,3 +32,15 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.dropdown-menu {
+  background-color: $navy;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  opacity: 80%;
+}
