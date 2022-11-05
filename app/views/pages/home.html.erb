@@ -4,18 +4,18 @@
         <h1>RENT-A-COW</h1>
       <p>Need to mow your lawn? Filming a commercial? Need emotional support? Say no more!</p>
     </div>
-
-    <% if user_signed_in? %>
-      <p class="user-greeting">hello <%= current_user.first_name %>!</p>
-    <% else %>
-
-      <p class="login-button">
-        <%= link_to "LOGIN", new_user_session_path, class: "nav-link" %>
-      </p>
-    <% end %>
   </div>
 </div>
 
 <div class="page-content">
+  <% if user_signed_in? %>
+    <p class="user-greeting">Hello <%= current_user.first_name %>!</p>
+  <% else %>
+
+  <p class="user-greeting">
+    Here are some cute cows, <%= link_to " log in ", new_user_session_path, class: "nav-link" %> to book a cow !
+  </p>
+  <% end %>
+
   <%= render "shared/allcows" %>
 </div>
