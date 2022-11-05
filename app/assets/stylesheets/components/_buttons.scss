@@ -1,6 +1,6 @@
 .login-button {
   border-radius: 8px;
-  background-color: #2b2d42;
+  background-color: $navy;
   height: 50px;
   width: 150px;
   display: flex;
@@ -12,13 +12,13 @@
 }
 .login-button:hover {
   text-decoration: none;
-  background-color: #d80032;
+  background-color: $red;
   cursor: pointer;
 }
 
 .sign-in-btn{
   border-radius: 8px;
-  background-color: #1D3557;
+  background-color: $navy;
   height: 50px;
   width: 150px;
   display: flex;
