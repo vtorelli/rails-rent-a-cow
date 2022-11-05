@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       get :mycows, as: :mycows
     end
 
-    resources :bookings, only: [:new, :create, :index, :show, :edit, :update]
+    resources :bookings, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   end
 
   get "bookings/user_bookings", to: "bookings#user_bookings", as: :user_bookings

@@ -11,6 +11,8 @@
     <p>Description : <%= booking.cow.description %></p>
     <h3>Owner name : <%= booking.cow.user.first_name %> <%= booking.cow.user.last_name %></h3>
     <h2>Price : <%= booking.duration %>d * <%= booking.cow.price_per_day %>€  = <%= booking.cow.price_per_day * booking.duration %> €</h2>
+    <br>
+    <%= link_to "delete this booking", cow_booking_path(booking.cow, booking), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?" } %>
     <hr>
   <% end %>
 </div>
