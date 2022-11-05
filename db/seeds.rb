@@ -19,19 +19,30 @@ images_cows = [
 
 num = 0
 
-puts "Creating Cows..."
 
-User.new(
+puts "Creating User..."
+user = User.new(
   email: Faker::Internet.email,
-  password: "password"
-)
+  password: "password",
+  first_name: "Uma",
+  last_name: "Thurman"
+);
+user.save!
 
+puts "Creating Tags..."
+tags = ["cuddly", "sassy", "tall", "chewy", "mouthy", "chonky", "oh-lawd-she-comin", "stinky", "queen"]
+tags.each do |tag|
+  tag1 = Tag.new(name: tag)
+  tag1.save!
+end
+
+puts "Creating Cows..."
 images_cows.shuffle.each do |image|
   cow = Cow.new(
     name: Faker::Name.middle_name,
     description: Faker::Lorem.paragraph(sentence_count: 3),
     price_per_day: [10, 30, 50, 80, 100].sample,
-    user_id: 1
+    user_id: user.id
   )
 
   cow.photo.attach(
@@ -42,5 +53,9 @@ images_cows.shuffle.each do |image|
   puts "Create a cow(#{num}): #{cow.name}"
   cow.save!
   num += 1
+
+  if num > 5
+    break
+  end
 end
 puts "End of creation of Cows."

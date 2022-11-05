@@ -1,5 +1,4 @@
 class CowsController < ApplicationController
-
   def index
     @cows = Cow.all
   end
@@ -11,9 +10,10 @@ class CowsController < ApplicationController
   def create
     @cow = Cow.new(cow_params)
     @cow.user_id = current_user.id
+    tags_attributes=(cow_params["tag_attributes"])
 
     if @cow.save
-      #redirect_to list_path(@list)
+      # redirect_to list_path(@list)
       redirect_to cows_path
     else
       render :new, status: :unprocessable_entity
@@ -55,12 +55,21 @@ class CowsController < ApplicationController
   private
 
   def cows_authorization(cow)
-    if cow.user_id != current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path if cow.user_id != current_user.id
   end
 
   def cow_params
-    params.require(:cow).permit(:name, :description, :price_per_day, :photo)
+    params.require(:cow).permit(:name,
+                                :description,
+                                :price_per_day,
+                                :photo,
+                                tags_attributes: [:name])
+  end
+
+  def tags_attributes=(tag_attributes)
+    tag_attributes.each_value do |tag_attribute|
+      tag1 = Tag.find_or_create_by!(tag_attribute)
+      CowTag.find_or_create_by!(cow: self, tag: tag1)
+    end
   end
 end
