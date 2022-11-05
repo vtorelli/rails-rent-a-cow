@@ -17,6 +17,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def user_bookings
+    @bookings = Booking.where(user_id: current_user).order(:start_date)
+  end
+
   private
 
   def booking_params
