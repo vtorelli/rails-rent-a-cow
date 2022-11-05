@@ -1,11 +1,11 @@
 <h1>Bookings#new</h1>
 <p>Find me in app/views/bookings/new.html.erb</p>
+
 <div class="container">
   <%= simple_form_for [@cow, @booking] do |f| %>
     <%= f.input :start_date  %>
     <%= f.input :duration %>
     <%= f.input :location %>
-    <%= f.input :total_cost %>
     <%= f.submit %>
   <% end %>
 </div>

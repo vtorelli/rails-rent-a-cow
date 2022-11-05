@@ -14,7 +14,7 @@
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
     %>
   <% else %>
-    <%= link_to "Make a booking", root_path %>
+    <%= link_to "Make a booking", new_cow_booking_path(@cow) %>
   <% end %>
 </div>
 
