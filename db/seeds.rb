@@ -38,7 +38,7 @@ images_cows.shuffle.each do |image|
     name: Faker::Name.middle_name,
     description: Faker::Lorem.paragraph(sentence_count: 3),
     price_per_day: [10, 30, 50, 80, 100].sample,
-    user_id: 1
+    user_id: User.first.id
   )
 
   cow.photo.attach(
