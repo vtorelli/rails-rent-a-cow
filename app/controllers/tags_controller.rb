@@ -1,11 +1,9 @@
 class TagsController < ApplicationController
 
-  def new
-    @tag = Tag.new
-  end
-
   def create
+    @cow = Cow.find(params[:cow_id])
     @tag = Tag.new(tag_params)
+    @tag.cow = @cow
   end
 
   private

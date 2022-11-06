@@ -12,4 +12,13 @@ class Cow < ApplicationRecord
   validates :photo, presence: true
 
   has_one_attached :photo
+
+  private
+
+  def new_tag_attributes=(tag_attributes)
+    tag_attributes.each_value do |tag_attribute|
+      tag1 = Tag.find_or_create_by!(tag_attribute)
+      CowTag.find_or_create_by!(cow: self, tag: tag1)
+    end
+  end
 end

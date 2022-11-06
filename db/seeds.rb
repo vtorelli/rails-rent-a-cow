@@ -31,9 +31,11 @@ user.save!
 
 puts "Creating Tags..."
 tags = ["cuddly", "sassy", "tall", "chewy", "mouthy", "chonky", "oh-lawd-she-comin", "stinky", "queen"]
-tags.each do |tag|
-  tag1 = Tag.new(name: tag)
-  tag1.save!
+tags_obj_arr = []
+tags.each do |tag_name|
+  tag = Tag.new(name: tag_name)
+  tag.save!
+  tags_obj_arr << tag
 end
 
 puts "Creating Cows..."
@@ -53,6 +55,14 @@ images_cows.shuffle.each do |image|
   puts "Create a cow(#{num}): #{cow.name}"
   cow.save!
   num += 1
+
+  puts "Create cow(#{num}): #{cow.name} Tag"
+  [1, 2, 3].sample.times do
+    cow_tag = CowTag.new(
+      cow_id: cow.id,
+      tag_id: tags_obj_arr.sample.id)
+    cow_tag.save!
+  end
 
   if num > 5
     break
