@@ -6,6 +6,9 @@
   background: $white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
+  max-width: 800px;
+  margin: auto;
+  justify-content: center;
 }
 .card-individual-cow > img {
   height: 400px;
@@ -44,4 +47,10 @@
 .card-individual-cow-user {
   width: 60px;
   height: 60px;
+}
+.cow-tags {
+  max-width: 800px;
+  margin: auto;
+  justify-content: center;
+
 }
