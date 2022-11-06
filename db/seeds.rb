@@ -10,9 +10,9 @@ puts "Creating Users..."
 
 array_users = [
   {
-    first_name: "Sebastien",
-    last_name: "Saunier",
-    email: "seb@lewagon.com",
+    first_name: "Chonky",
+    last_name: "McChonk",
+    email: "chonky@lewagon.com",
     password: "lewagon"
   },
   {
@@ -25,6 +25,12 @@ array_users = [
     first_name: "Nicolas",
     last_name: "Blanchard",
     email: "nicolas@lewagon.com",
+    password: "lewagon"
+  },
+  {
+    first_name: "Rishabh",
+    last_name: "Agnihotri",
+    email: "rish@lewagon.com",
     password: "lewagon"
   }
 ]
@@ -61,6 +67,16 @@ images_cows = [
 
 num = 0
 
+
+puts "Creating Tags..."
+tags = ["cuddly", "sassy", "tall", "chewy", "mouthy", "chonky", "oh-lawd-she-comin", "stinky", "queen"]
+tags_obj_arr = []
+tags.each do |tag_name|
+  tag = Tag.new(name: tag_name)
+  tag.save!
+  tags_obj_arr << tag
+end
+
 puts " "
 puts "Creating the cows..."
 
@@ -71,7 +87,7 @@ def faker_name()
   end
 end
 
-
+puts "Creating Cows..."
 images_cows.shuffle.each do |image|
   cow = Cow.new(
     name: faker_name,
@@ -88,6 +104,18 @@ images_cows.shuffle.each do |image|
   puts "Create cow n.#{num}): #{cow.name}"
   cow.save!
   num += 1
+
+  puts "Create cow(#{num}): #{cow.name} Tag"
+  [1, 2, 3].sample.times do
+    cow_tag = CowTag.new(
+      cow_id: cow.id,
+      tag_id: tags_obj_arr.sample.id)
+    cow_tag.save!
+  end
+
+  if num > 5
+    break
+  end
 end
 
 puts " "

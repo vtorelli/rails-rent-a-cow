@@ -5,6 +5,12 @@
   <h3>Price : <%= @cow.price_per_day %>€</h3>
   <%= cl_image_tag @cow.photo.key, height: 300, width: 400, crop: :fill %>
 
+  <div>
+  <% @cow.tags.each do |tag| %>
+    <button type="button" class="h-50 btn btn-warning btn-sm my-2"><%= tag.name %></button>
+  <% end %>
+  </div>
+  <%  %>
   <br>
 
   <% if @cow.user_id == current_user.id %>
@@ -17,4 +23,3 @@
     <%= link_to "Make a booking", new_cow_booking_path(@cow) %>
   <% end %>
 </div>
-
