@@ -10,7 +10,8 @@
     <button type="button" class="h-50 btn btn-warning btn-sm my-2"><%= tag.name %></button>
   <% end %>
   </div>
-  <%  %>
+  <%= render "tag", cow: @cow, tag: @tag %>
+
   <br>
 
   <% if @cow.user_id == current_user.id %>
