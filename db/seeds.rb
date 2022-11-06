@@ -87,6 +87,7 @@ def faker_name()
   end
 end
 
+puts " "
 puts "Creating Cows..."
 images_cows.shuffle.each do |image|
   cow = Cow.new(
@@ -101,7 +102,7 @@ images_cows.shuffle.each do |image|
   io: URI.open(image)
 )
 
-  puts "Create cow n.#{num}): #{cow.name}"
+  puts "Created cow n.#{num}): #{cow.name}"
   cow.save!
   num += 1
 

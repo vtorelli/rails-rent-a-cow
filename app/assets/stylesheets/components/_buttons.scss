@@ -29,3 +29,17 @@
   color: $white;
   background-color: $red;
 }
+.blue-btn {
+  border-radius: 8px;
+  background-color: $navy;
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+}
+.blue-btn:hover {
+  color: $white;
+  background-color: $red;
+}

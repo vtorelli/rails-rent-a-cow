@@ -16,7 +16,18 @@
         <%= image_tag "user.png", class: "card-individual-cow-user" %>
         <p>This cow is owned by <a href="#"><%= @cow.user.first_name %></a></p>
       </div>
+
+      <div class="cow-show-links">
+        <% if @cow.user_id == current_user.id %>
+          <%= link_to "Edit", edit_cow_path(@cow) %>
+          <%= link_to "Delete", cow_path(@cow), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <% else %>
+          <%= link_to "Book this cow!", new_cow_booking_path(@cow), class: "blue-btn" %> <br>
+        <% end %>
+      </div>
     </div>
+
+
 
     <div class="cow-tags">
     <% @cow.tags.each do |tag| %>
@@ -27,17 +38,6 @@
 
     <br>
 
-    <div class="cow-show-links">
-      <% if @cow.user_id == current_user.id %>
-          <%= link_to "Edit", edit_cow_path(@cow) %>
-          <%= link_to "Delete",
-            cow_path(@cow),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-          %>
-        <% else %>
-          <%= link_to "Make a booking", new_cow_booking_path(@cow) %> <br>
-          <%= link_to "Back to all cows", cows_path %>
-        <% end %>
-    </div>
+
   </div>
 </div>
