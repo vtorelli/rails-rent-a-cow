@@ -18,6 +18,15 @@
       </div>
     </div>
 
+    <div class="cow-tags">
+    <% @cow.tags.each do |tag| %>
+      <button type="button" class="h-50 btn btn-warning btn-sm my-2"><%= tag.name %></button>
+    <% end %>
+    </div>
+    <%= render "tag", cow: @cow, tag: @tag %>
+
+    <br>
+
     <div class="cow-show-links">
       <% if @cow.user_id == current_user.id %>
           <%= link_to "Edit", edit_cow_path(@cow) %>

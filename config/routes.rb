@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     end
 
     resources :bookings, only: [:new, :create, :index, :show, :edit, :update]
+
+    resources :tags, only: :create
+
   end
 
   get "bookings/user_bookings", to: "bookings#user_bookings", as: :user_bookings

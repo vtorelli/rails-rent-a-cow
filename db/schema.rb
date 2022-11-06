@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_05_072515) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_06_064039) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_072515) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "cow_tags", force: :cascade do |t|
+    t.bigint "cow_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cow_id", "tag_id"], name: "index_cow_tags_on_cow_id_and_tag_id", unique: true
+    t.index ["cow_id"], name: "index_cow_tags_on_cow_id"
+    t.index ["tag_id"], name: "index_cow_tags_on_tag_id"
+  end
+
   create_table "cows", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -63,6 +73,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_072515) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_cows_on_user_id"
+  end
+
+  create_table "cows_tags", id: false, force: :cascade do |t|
+    t.bigint "cow_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["tag_id", "cow_id"], name: "index_cows_tags_on_tag_id_and_cow_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,5 +105,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_05_072515) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "cows"
   add_foreign_key "bookings", "users"
+  add_foreign_key "cow_tags", "cows"
+  add_foreign_key "cow_tags", "tags"
   add_foreign_key "cows", "users"
 end
