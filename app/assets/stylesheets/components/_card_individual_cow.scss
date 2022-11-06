@@ -1,32 +1,27 @@
 .container {
   margin-top: 100px !important;
 }
-
 .card-individual-cow {
   overflow: hidden;
   background: $white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 8px;
 }
-
 .card-individual-cow > img {
   height: 400px;
   width: 100%;
   object-fit: cover;
 }
-
 .card-individual-cow h2 {
   font-size: 24px;
   font-weight: 900;
   margin: 0;
 }
-
 .card-individual-cow p {
   font-size: 16px;
   opacity: .7;
   margin: 0;
 }
-
 .card-individual-cow .card-individual-cow-infos {
   padding: 16px;
   display: flex;
@@ -34,12 +29,12 @@
   align-items: flex-end;
   position: relative;
 }
-
 .cow-show-links {
   margin-top: 8px;
   padding: 16px;
+  display: flex;
+  gap: 8px;
 }
-
 .cow-owner-info {
   padding: 16px;
   display: flex;
