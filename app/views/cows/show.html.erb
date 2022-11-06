@@ -10,7 +10,7 @@
         </div>
 
         <h2 class="card-individual-cow-pricing"><%= @cow.price_per_day %>€/day</h2>
-       </div>
+      </div>
 
       <div class="cow-owner-info">
         <%= image_tag "user.png", class: "card-individual-cow-user" %>
@@ -19,10 +19,10 @@
 
       <div class="cow-show-links">
         <% if @cow.user_id == current_user.id %>
-          <%= link_to "Edit", edit_cow_path(@cow) %>
-          <%= link_to "Delete", cow_path(@cow), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          <%= link_to "edit my cow", edit_cow_path(@cow), class: "blue-button" %>
+          <%= link_to "delete my cow", cow_path(@cow), class: "light-blue-button", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         <% else %>
-          <%= link_to "Book this cow!", new_cow_booking_path(@cow), class: "blue-btn" %> <br>
+          <%= link_to "Book this cow !", new_cow_booking_path(@cow), class: "blue-button" %> <br>
         <% end %>
       </div>
     </div>
@@ -35,9 +35,6 @@
     <% end %>
     </div>
     <%= render "tag", cow: @cow, tag: @tag %>
-
-    <br>
-
 
   </div>
 </div>

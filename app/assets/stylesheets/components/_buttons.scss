@@ -29,7 +29,7 @@
   color: $white;
   background-color: $red;
 }
-.blue-btn {
+.blue-button {
   border-radius: 8px;
   background-color: $navy;
   height: 50px;
@@ -39,7 +39,21 @@
   justify-content: center;
   color: $white;
 }
-.blue-btn:hover {
+.blue-button:hover {
+  color: $white;
+  background-color: $red;
+}
+.light-blue-button {
+  border-radius: 8px;
+  background-color: $light-blue;
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+}
+.light-blue-button:hover {
   color: $white;
   background-color: $red;
 }
