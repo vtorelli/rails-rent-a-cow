@@ -59,12 +59,13 @@
   }
 }
 
-.cow-card .cow-card-infos {
+.cow-card-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   position: relative;
+  gap: 10px;
 }
 
 .cow-card-infos .cow-card-user {

@@ -1,19 +1,24 @@
-<h1>My bookings</h1>
 
-<div class="container">
-  <% @bookings.each do |booking| %>
-    <%= cl_image_tag booking.cow.photo.key, height: 300, width: 400, crop: :fill %>
-    <h2>Start Date : <%= booking.start_date %></h2>
-    <p>Duration : <%= booking.duration %> days</p>
-    <p>Location : <%= booking.location %></p>
-    <h3>Cow</h3>
-    <p>Name : <%= booking.cow.name %></p>
-    <p>Description : <%= booking.cow.description %></p>
-    <h3>Owner name : <%= booking.cow.user.first_name %> <%= booking.cow.user.last_name %></h3>
-    <h2>Price : <%= booking.duration %>d * <%= booking.cow.price_per_day %>€  = <%= booking.cow.price_per_day * booking.duration %> €</h2>
-    <br>
-    <%= link_to "Edit", edit_cow_booking_path(booking.cow, booking)  %>
-    <%= link_to "Delete", cow_booking_path(booking.cow, booking), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?" } %>
-    <hr>
-  <% end %>
+<div class="wrapper">
+  <div class="container">
+    <h1>My bookings</h1>
+
+    <% @bookings.each do |booking| %>
+      <%= cl_image_tag booking.cow.photo.key, height: 300, width: 400, crop: :fill %>
+
+      <h2>Booking starts on <%= booking.start_date %></h2>
+      <p>Duration : <%= booking.duration %> days</p>
+      <p>Location : <%= booking.location %></p><br>
+
+      <h3>You booked <strong><%= booking.cow.name %></strong>, good choice! </h3>
+      <p>About <%= booking.cow.name %>: <%= booking.cow.description %></p>
+      <h3>Owner : <%= booking.cow.user.first_name %> <%= booking.cow.user.last_name %></h3>
+      <a href="#">Contact <%= booking.cow.user.first_name %></a>
+
+      <h2>Price for <%= booking.duration %> days (<%= booking.cow.price_per_day %>€ / day)  = <%= booking.cow.price_per_day * booking.duration %> €</h2>
+      <%= link_to "Edit", edit_cow_booking_path(booking.cow, booking)  %>
+      <%= link_to "Delete", cow_booking_path(booking.cow, booking), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?" } %>
+      <hr>
+    <% end %>
+  </div>
 </div>

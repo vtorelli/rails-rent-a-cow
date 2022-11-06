@@ -1,6 +1,11 @@
-<h1>MyCows</h1>
+<div class="wrapper">
+  <div class="container">
+    <h1>My Cows</h1>
 
-<div class="container text-center">
-  <%= link_to "Add new cow", new_cow_path %>
+    <div class="container text-center">
+      <%= link_to "Add new cow", new_cow_path %>
+    </div>
+
+    <%= render "shared/allcows" %>
+  </div>
 </div>
-<%= render "shared/allcows" %>

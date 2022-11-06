@@ -91,7 +91,7 @@ puts "Creating Cows..."
 images_cows.shuffle.each do |image|
   cow = Cow.new(
     name: faker_name,
-    description: Faker::Lorem.paragraph(sentence_count: 3),
+    description: Faker::ChuckNorris.fact,
     price_per_day: [10, 30, 50, 80, 100].sample,
     user: User.all.sample
   )
