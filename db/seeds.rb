@@ -93,7 +93,7 @@ images_cows.shuffle.each do |image|
     name: faker_name,
     description: Faker::Lorem.paragraph(sentence_count: 3),
     price_per_day: [10, 30, 50, 80, 100].sample,
-    user: User.first
+    user: User.all.sample
   )
 
   cow.photo.attach(
@@ -105,12 +105,17 @@ images_cows.shuffle.each do |image|
   cow.save!
   num += 1
 
-  puts "Create cow(#{num}): #{cow.name} Tag"
+
+  tags_copy = tags_obj_arr.clone
   [1, 2, 3].sample.times do
-    cow_tag = CowTag.new(
-      cow_id: cow.id,
-      tag_id: tags_obj_arr.sample.id)
-    cow_tag.save!
+    tag = tags_copy.sample
+    tags_copy.delete(tag)
+    puts "Creating tag: #{tag.name} for #{cow.name}"
+    cow.tags << tag
+    # cow_tag = CowTag.new(
+    #   cow_id: cow.id,
+    #   tag_id: tag.id)
+    # cow_tag.save!
   end
 
   if num > 5

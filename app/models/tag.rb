@@ -3,4 +3,6 @@ class Tag < ApplicationRecord
   has_many :cow_tags, dependent: :destroy
   has_many :cows, through: :cow_tags
   accepts_nested_attributes_for :cows
+
+  validates :name, uniqueness: true
 end

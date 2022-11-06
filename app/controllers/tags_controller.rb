@@ -2,8 +2,18 @@ class TagsController < ApplicationController
 
   def create
     @cow = Cow.find(params[:cow_id])
-    @tag = Tag.new(tag_params)
-    @tag.cow = @cow
+
+    # @payments = account.business.payments.where(id: params[:id])
+    @tag = Tag.find_or_create_by(name: tag_params[:name])
+    unless @tag.cows.include?(@cow)
+      @tag.cows << @cow
+    end
+
+    if @tag.save
+      redirect_to cow_path(@cow)
+    else
+      render "cows/show"
+    end
   end
 
   private
