@@ -1,7 +1,7 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
-
 <div class="container">
+<h1>New Bookings</h1>
+
+
   <%= simple_form_for [@cow, @booking] do |f| %>
     <%= f.input :start_date, as: :date, html5: true  %>
     <%= f.input :duration %>
