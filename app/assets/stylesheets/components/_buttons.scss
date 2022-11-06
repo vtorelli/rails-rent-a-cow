@@ -1,17 +1,31 @@
 .login-button {
   border-radius: 8px;
-  background-color: #2b2d42;
+  background-color: $navy;
   height: 50px;
   width: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   a {
-    color: #F1FAEE;
+    color: $white;
   }
 }
 .login-button:hover {
   text-decoration: none;
-  background-color: #d80032;
+  background-color: $red;
   cursor: pointer;
+}
+.sign-in-btn{
+  border-radius: 8px;
+  background-color: $navy;
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+}
+.sign-in-btn:hover {
+  color: $white;
+  background-color: $red;
 }

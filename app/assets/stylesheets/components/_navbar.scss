@@ -1,6 +1,28 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: $white;
+  background: $navy;
+  color: $white;
+
+  a {
+    color: $light-blue;
+  }
+
+  a:hover {
+    color: $red;
+  }
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.navbar-brand .fa-cow {
+  font-size: 30px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +31,16 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.dropdown-menu {
+  background-color: $navy;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  opacity: 80%;
 }
