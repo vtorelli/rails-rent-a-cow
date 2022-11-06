@@ -3,7 +3,7 @@
     <%= link_to cow_path(cow), class:"text-decoration-none" do %>
       <div class="cow-card">
         <% if cow.photo.key %>
-          <%= cl_image_tag cow.photo.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag cow.photo.key, crop: :fill %>
         <% end %>
         <div class="cow-card-infos">
           <div>

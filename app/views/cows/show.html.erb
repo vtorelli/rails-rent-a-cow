@@ -1,20 +1,34 @@
-<div class="container">
-  <%= link_to "Back to all cows", cows_path %>
-  <h2>Name : <%= @cow.name %></h2>
-  <p>Description : <%= @cow.description %></p>
-  <h3>Price : <%= @cow.price_per_day %>€</h3>
-  <%= cl_image_tag @cow.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="wrapper">
+  <div class="container">
 
-  <br>
+    <div class="card-individual-cow">
+      <%= cl_image_tag @cow.photo.key %>
+      <div class="card-individual-cow-infos">
+        <div>
+          <h2 class="text-uppercase fw-bold"><%= @cow.name %></h2>
+          <p><%= @cow.description %></p>
+        </div>
 
-  <% if @cow.user_id == current_user.id %>
-    <%= link_to "Edit", edit_cow_path(@cow) %>
-    <%= link_to "Delete",
-      cow_path(@cow),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-    %>
-  <% else %>
-    <%= link_to "Make a booking", new_cow_booking_path(@cow) %>
-  <% end %>
+        <h2 class="card-individual-cow-pricing"><%= @cow.price_per_day %>€/day</h2>
+       </div>
+
+      <div class="cow-owner-info">
+        <%= image_tag "user.png", class: "card-individual-cow-user" %>
+        <p>This cow is owned by <a href="#"><%= @cow.user.first_name %></a></p>
+      </div>
+    </div>
+
+    <div class="cow-show-links">
+      <% if @cow.user_id == current_user.id %>
+          <%= link_to "Edit", edit_cow_path(@cow) %>
+          <%= link_to "Delete",
+            cow_path(@cow),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+        <% else %>
+          <%= link_to "Make a booking", new_cow_booking_path(@cow) %> <br>
+          <%= link_to "Back to all cows", cows_path %>
+        <% end %>
+    </div>
+  </div>
 </div>
-
