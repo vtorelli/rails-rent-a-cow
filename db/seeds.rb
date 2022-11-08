@@ -2,6 +2,7 @@ puts "Cleaning database..."
 Booking.destroy_all
 Cow.destroy_all
 User.destroy_all
+Tag.destroy_all
 
 puts " "
 puts "Database deleted successfully."
