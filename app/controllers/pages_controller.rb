@@ -8,7 +8,7 @@ class PagesController < ApplicationController
         OR cows.description @@ :query
         OR tags.name @@ :query
       SQL
-      @cows = Cow.joins(:tags).where(sql_query, query: "%#{params[:query]}%")
+      @cows = Cow.left_outer_joins(:tags).where(sql_query, query: "%#{params[:query]}%")
       @cows = @cows.uniq
     else
       @cows = Cow.all
