@@ -29,7 +29,7 @@
   color: $white;
   background-color: $red;
 }
-.blue-button {
+.navy-button {
   border-radius: 8px;
   background-color: $navy;
   height: 50px;
@@ -39,7 +39,7 @@
   justify-content: center;
   color: $white;
 }
-.blue-button:hover {
+.navy-button:hover {
   color: $white;
   background-color: $red;
 }
@@ -54,6 +54,20 @@
   color: $navy;
 }
 .light-blue-button:hover {
+  color: $white;
+  background-color: $red;
+}
+.blue-button {
+  border-radius: 8px;
+  background-color: $blue;
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+}
+.blue-button:hover {
   color: $white;
   background-color: $red;
 }
