@@ -119,7 +119,7 @@ images_cows.shuffle.each do |image|
     # cow_tag.save!
   end
 
-  if num > 5
+  if num > images_cows.count
     break
   end
 end
