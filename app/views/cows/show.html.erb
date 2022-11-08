@@ -3,6 +3,7 @@
 
     <div class="card-individual-cow">
       <%= cl_image_tag @cow.photo.key %>
+<<<<<<< HEAD
       <div class="cow-details">
         <div class="card-individual-cow-infos">
           <div>
@@ -13,6 +14,13 @@
           <h2 class="card-individual-cow-pricing">
             <%= @cow.price_per_day %>€/day
           </h2>
+=======
+      <div class="card-individual-cow-infos">
+        <div>
+          <h2 class="text-uppercase fw-bolder"><%= @cow.name %></h2>
+          <p><%= @cow.description %></p>
+          <p><%= @cow.location %></p>
+>>>>>>> 077a8073d696dc1e987674e0abe11e9168dc22dd
         </div>
 
         <div class="cow-owner-info">
@@ -31,6 +39,20 @@
         </div>
       </div>
 
+<<<<<<< HEAD
+=======
+      <div class="cow-show-links">
+        <% if @cow.user_id == current_user.id %>
+          <%= render "tags/create_tag", cow: @cow, tag: @tag %>
+          <br>
+          <%= link_to "edit my cow", edit_cow_path(@cow), class: "navy-button" %>
+          <%= link_to "view #{@cow.name}'s bookings", "#", class: "blue-button" %>
+          <%= link_to "delete my cow", cow_path(@cow), class: "light-blue-button", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <% else %>
+          <%= link_to "Book this cow !", new_cow_booking_path(@cow), class: "navy-button" %> <br>
+        <% end %>
+      </div>
+>>>>>>> 077a8073d696dc1e987674e0abe11e9168dc22dd
     </div>
 
     <div class="cow-tags">
@@ -38,7 +60,6 @@
       <button type="button" class="h-50 btn btn-warning btn-sm my-2"><%= tag.name %></button>
     <% end %>
     </div>
-    <%= render "tag", cow: @cow, tag: @tag %>
 
   </div>
 </div>
