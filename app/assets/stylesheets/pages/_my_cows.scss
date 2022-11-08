@@ -1,0 +1,16 @@
+.my-cows-banner {
+  background-color: $light-blue;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+.container-my-cows {
+  margin: 24px;
+}
+#my-cows-add-cow-btn {
+  margin: auto;
+  margin-top: 32px;
+  text-justify: center;
+}

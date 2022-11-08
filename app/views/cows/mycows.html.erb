@@ -1,13 +1,11 @@
 <div class="wrapper">
-  <div class="my-cows-banner">
-    <h1>My Cows</h1>
+  <div class="my-cows-banner text-center">
+    <h1>MY COWS</h1>
   </div>
 
-  <div class="container text-center">
-    <div class="container text-center">
-      <%= link_to "Add new cow", new_cow_path %>
-    </div>
+  <%= link_to "Add new cow", new_cow_path, class: "navy-button", id: "my-cows-add-cow-btn" %>
 
+  <div class="container-my-cows">
     <%= render "shared/allcows" %>
   </div>
 </div>

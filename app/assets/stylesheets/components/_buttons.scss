@@ -71,3 +71,17 @@
   color: $white;
   background-color: $red;
 }
+.red-button {
+  border-radius: 8px;
+  background-color: $red;
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+}
+.red-button:hover {
+  color: $white;
+  background-color: $navy;
+}
