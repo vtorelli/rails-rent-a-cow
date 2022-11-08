@@ -16,6 +16,7 @@
 @import "components/footer";
 @import "components/cow_cards";
 @import "components/card_individual_cow";
+@import "pages/cows_edit";
 
 
 body {
@@ -33,7 +34,9 @@ a {
 a:hover {
   color: $red;
 }
-
 .container{
 margin-top: 50px;
+}
+h1, h2 {
+  font-weight: 900;
 }
