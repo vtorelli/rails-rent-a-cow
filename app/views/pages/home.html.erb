@@ -4,6 +4,19 @@
       <i class="fa-solid fa-cow hero-banner-logo"></i>
       <h1 class="fw-bold">RENT-A-COW</h1>
       <p>Need to mow your lawn? Filming a commercial? Need emotional support? Say no more!</p>
+
+      <div class="search-bar">
+        <div class="text-center">
+          <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "find a cow"
+            %>
+          <%= submit_tag "Search", class: "red-button", id: "search-btn-homepage" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 
