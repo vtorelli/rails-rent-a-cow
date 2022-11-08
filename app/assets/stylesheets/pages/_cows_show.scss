@@ -46,7 +46,7 @@
   margin-top: 8px;
   display: flex;
   gap: 8px;
-  justify-content: left;
+  justify-content: center;
 }
 .cow-owner-info {
   display: flex;
@@ -61,4 +61,7 @@
   max-width: 800px;
   margin: auto;
   justify-content: center;
+}
+#edit-my-cow-btn, #cows-view-bookings-btn, #delete-my-cow-btn, #back-to-my-cows-btn {
+  flex-grow: 1;
 }
