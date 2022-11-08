@@ -13,6 +13,12 @@ class Cow < ApplicationRecord
 
   has_one_attached :photo
 
+  def add_tag(name)
+    tag = Tag.find_or_create_by(name: name)
+    cow_tag = CowTag.create(tag: tag, cow: self)
+    tag
+  end
+
   private
 
   def new_tag_attributes=(tag_attributes)

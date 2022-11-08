@@ -2,6 +2,7 @@ puts "Cleaning database..."
 Booking.destroy_all
 Cow.destroy_all
 User.destroy_all
+Tag.destroy_all
 
 puts " "
 puts "Database deleted successfully."
@@ -106,17 +107,9 @@ images_cows.shuffle.each do |image|
   cow.save!
   num += 1
 
-
-  tags_copy = tags_obj_arr.clone
-  [1, 2, 3].sample.times do
-    tag = tags_copy.sample
-    tags_copy.delete(tag)
+  tags.shuffle.first(rand(3)).each do |tag_name|
+    tag = cow.add_tag(tag_name)
     puts "Creating tag: #{tag.name} for #{cow.name}"
-    cow.tags << tag
-    # cow_tag = CowTag.new(
-    #   cow_id: cow.id,
-    #   tag_id: tag.id)
-    # cow_tag.save!
   end
 
   if num > images_cows.count
