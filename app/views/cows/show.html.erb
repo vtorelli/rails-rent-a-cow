@@ -19,6 +19,8 @@
 
       <div class="cow-show-links">
         <% if @cow.user_id == current_user.id %>
+          <%= render "tags/create_tag", cow: @cow, tag: @tag %>
+          <br>
           <%= link_to "edit my cow", edit_cow_path(@cow), class: "navy-button" %>
           <%= link_to "view #{@cow.name}'s bookings", "#", class: "blue-button" %>
           <%= link_to "delete my cow", cow_path(@cow), class: "light-blue-button", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
@@ -33,7 +35,6 @@
       <button type="button" class="h-50 btn btn-warning btn-sm my-2"><%= tag.name %></button>
     <% end %>
     </div>
-    <%= render "tag", cow: @cow, tag: @tag %>
 
   </div>
 </div>
