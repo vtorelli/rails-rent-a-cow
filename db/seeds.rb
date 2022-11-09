@@ -44,6 +44,22 @@ end
 puts " "
 puts "Users created succesfully."
 
+
+num = 0
+
+
+puts "Creating Tags..."
+tags = ["cuddly", "sassy", "tall", "chewy", "mouthy", "chonky", "oh-lawd-she-comin", "stinky", "queen"]
+tags_obj_arr = []
+tags.each do |tag_name|
+  tag = Tag.new(name: tag_name)
+  tag.save!
+  tags_obj_arr << tag
+end
+
+puts " "
+puts "Creating Cows..."
+
 images_cows = [
   "https://images.unsplash.com/photo-1564677349626-2de4b8274089?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1734&q=80",
   "https://images.unsplash.com/photo-1531299192269-7e6cfc8553bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
@@ -66,20 +82,27 @@ images_cows = [
   "https://images.unsplash.com/photo-1604250757408-8602c89b4f80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1264&q=80",
 ]
 
-num = 0
-
-
-puts "Creating Tags..."
-tags = ["cuddly", "sassy", "tall", "chewy", "mouthy", "chonky", "oh-lawd-she-comin", "stinky", "queen"]
-tags_obj_arr = []
-tags.each do |tag_name|
-  tag = Tag.new(name: tag_name)
-  tag.save!
-  tags_obj_arr << tag
-end
-
-puts " "
-puts "Creating the cows..."
+location_cows = [
+  "18, Rue Paul Doumer, Aubervilliers",
+  "25, Boulevard de Stalingrad, Malakoff",
+  "2bis, Rue Gustave Courbet, Champigny-sur-Marne",
+  "L'Alcazar, 1, Rue de la Station, Asnières-sur-Seine",
+  "236, Avenue de Saint-Étienne, Montbrison",
+  "1 bis, Rue Romain Rolland, Bonneuil-sur-Marne",
+  "13, Allée Gambetta, Le Raincy",
+  "6, Rue Roger Salengro, Fontenay-sous-Bois",
+  "11, Place Jean Grandel, Gennevilliers",
+  "12, Rue du Château, Asnières-sur-Seine",
+  "27 bis, Avenue des Limites, Villemomble",
+  "25, Boulevard des Alliés,  Choisy-le-Roi",
+  "10, Place de la République, Bagneux",
+  "24, Rue Perronet, Neuilly-sur-Seine",
+  "143, Rue Jules Guesde, Rosny-sous-Bois",
+  "5, Place du Comte de Bendern, La Celle-Saint-Cloud",
+  "10, Rue Léon Blum, L'Haÿ-les-Roses",
+  "74, Avenue de Gravelle, Charenton-le-Pont",
+  "8, Villa la Garenne, Le Perreux-sur-Marne"
+]
 
 def faker_name()
   loop do
@@ -88,12 +111,16 @@ def faker_name()
   end
 end
 
-puts " "
-puts "Creating Cows..."
 images_cows.shuffle.each do |image|
+
+  tmp_location = location_cows.sample
+  location_cows.delete(tmp_location)
+  puts tmp_location
+
   cow = Cow.new(
     name: faker_name,
     description: Faker::ChuckNorris.fact,
+    location: tmp_location,
     price_per_day: [10, 30, 50, 80, 100].sample,
     user: User.all.sample
   )
@@ -112,7 +139,7 @@ images_cows.shuffle.each do |image|
     puts "Creating tag: #{tag.name} for #{cow.name}"
   end
 
-  if num > 5
+  if num > images_cows.count
     break
   end
 end

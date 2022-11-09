@@ -3,7 +3,6 @@
   <%= form_with model: cow do |f| %>
   <div class="card">
     <div class="card-body">
-
       <div class="mb-3">
         <%= f.label :name, {class: "form-label"} %>
         <%= f.text_field :name, {class: "form-control"} %>
@@ -13,6 +12,11 @@
       <div class="mb-3">
         <%= f.label :description, {class: "form-label"} %>
         <%= f.text_area :description, {class: "form-control"} %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :location, {class: "form-label"} %>
+        <%= f.text_field :location, {class: "form-control"} %>
       </div>
 
       <div class="mb-3">

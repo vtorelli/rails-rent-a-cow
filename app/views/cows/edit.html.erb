@@ -1,12 +1,17 @@
 <div class="wrapper">
   <div class="container">
-    <h1 class="text-uppercase fw-bolder"><%= @cow.name %></h1>
-    <%= cl_image_tag @cow.photo.key, class: "cow-edit-img" %>
+    <div class="edit-cow-banner"
+      style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cow.photo.key %>')"
+    >
+      <h1 class="text-uppercase fw-bolder"><%= @cow.name %></h1>
+    </div>
+
 
   <div class="edit-cow-form">
     <%= simple_form_for(@cow) do |f| %>
       <%= f.input :name  %>
       <%= f.input :description  %>
+      <%= f.input :location  %>
       <%= f.input :price_per_day  %>
       <%= f.input :photo, as: :file %>
       <%= f.submit %>

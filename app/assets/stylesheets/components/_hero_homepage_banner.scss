@@ -15,23 +15,6 @@
   color: $white;
   text-shadow: 3px 3px 16px rgba(0,0,0, 0.9);
 }
-.user-greeting {
-  display: flex;
-  gap: 5px;
-  margin: auto;
-  width: 80%;
-  padding: 20px;
-  justify-content: center;
-  border-bottom: 1px solid $light-blue;
-
-  a {
-    color: $red;
-  }
-
-  a:hover {
-    color: $blue;
-  }
-}
 .hero-banner-logo {
   font-size: 76px;
 }

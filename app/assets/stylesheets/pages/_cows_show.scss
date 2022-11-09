@@ -1,3 +1,67 @@
-.cow-show-links .blue-button {
+// .cow-show-links .blue-button {
+//   flex-grow: 1;
+// }
+
+.container {
+  margin-top: 100px !important;
+}
+.card-individual-cow {
+  overflow: hidden;
+  background: $white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  max-width: 800px;
+  margin: auto;
+  justify-content: center;
+}
+.cow-details {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.card-individual-cow > img {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+.card-individual-cow h2 {
+  font-size: 24px;
+  font-weight: 900;
+  margin: 0;
+}
+.card-individual-cow p {
+  font-size: 16px;
+  opacity: .7;
+  margin: 0;
+}
+.card-individual-cow .card-individual-cow-infos {
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+.cow-show-links {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  justify-content: left;
+}
+.cow-owner-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.card-individual-cow-user {
+  width: 60px;
+  height: 60px;
+}
+.cow-tags {
+  max-width: 800px;
+  margin: auto;
+  justify-content: center;
+}
+#edit-my-cow-btn, #cows-view-bookings-btn, #delete-my-cow-btn, #back-to-my-cows-btn {
   flex-grow: 1;
 }
