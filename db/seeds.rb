@@ -134,7 +134,7 @@ images_cows.shuffle.each do |image|
   cow.save!
   num += 1
 
-  tags.shuffle.first(rand(3)).each do |tag_name|
+  tags.shuffle.first(rand(1..6)).each do |tag_name|
     tag = cow.add_tag(tag_name)
     puts "Creating tag: #{tag.name} for #{cow.name}"
   end
