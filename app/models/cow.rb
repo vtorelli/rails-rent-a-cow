@@ -15,16 +15,16 @@ class Cow < ApplicationRecord
 
   def add_tag(name)
     tag = Tag.find_or_create_by(name: name)
-    cow_tag = CowTag.create(tag: tag, cow: self)
+    CowTag.create(tag: tag, cow: self)
     tag
   end
 
   private
 
-  def new_tag_attributes=(tag_attributes)
-    tag_attributes.each_value do |tag_attribute|
-      tag1 = Tag.find_or_create_by!(tag_attribute)
-      CowTag.find_or_create_by!(cow: self, tag: tag1)
-    end
-  end
+  # def new_tag_attributes=(tag_attributes)
+  #   tag_attributes.each_value do |tag_attribute|
+  #     tag1 = Tag.find_or_create_by!(tag_attribute)
+  #     CowTag.find_or_create_by!(cow: self, tag: tag1)
+  #   end
+  # end
 end
