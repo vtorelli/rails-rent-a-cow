@@ -67,7 +67,7 @@ images_cows = [
 
 num = 0
 
-
+Tag.destroy_all
 puts "Creating Tags..."
 tags = ["cuddly", "sassy", "tall", "chewy", "mouthy", "chonky", "oh-lawd-she-comin", "stinky", "queen"]
 tags_obj_arr = []
@@ -92,6 +92,7 @@ puts "Creating Cows..."
 images_cows.shuffle.each do |image|
   cow = Cow.new(
     name: faker_name,
+    address: ["Gildehauserweg 37, Losser", "Winkelcentrum Woensel 34, Eindhoven", "Otelaarseweg 5, Barneveld", "Stadhuisplein 10, Zoetermeer", "Brugstraat 30, Gennep"].sample,
     description: Faker::ChuckNorris.fact,
     price_per_day: [10, 30, 50, 80, 100].sample,
     user: User.all.sample
