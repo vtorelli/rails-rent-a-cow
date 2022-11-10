@@ -23,7 +23,7 @@
 
         <div class="cow-show-links">
           <% if @cow.user_id == current_user.id %>
-            <%# render "tags/create_tag", cow: @cow, tag: @tag %>
+            <%= render "tags/create_tag", cow: @cow, tag: @tag %>
             <%# <br> %>
             <%= link_to "edit my cow", edit_cow_path(@cow), class: "navy-button", id: "edit-my-cow-btn" %>
             <%= link_to "#{@cow.name}'s bookings", "#", class: "blue-button", id: "cows-view-bookings-btn" %>
