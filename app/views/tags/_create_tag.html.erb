@@ -1,9 +1,7 @@
-<div class="container mt-5">
   <%= form_with model: [cow, tag] do |f| %>
-  <div class="card">
-      <div class="mb-3">
-        <%= f.label :name, "Add Tag", {class: "form-label"} %>
-        <%= f.text_field :name, list: "tags_autocomplete" %>
+    <div class="add-tags-card">
+      <div class="tag-box">
+        <%= f.text_field :name, placeholder: ' tag name', list: "tags_autocomplete", class: 'tag-text-field' %>
         <datalist id="tags_autocomplete">
           <% Tag.all.each do |tag| %>
             <option value="<%= tag.name %>"></option>
@@ -12,11 +10,6 @@
       </div>
 
       <br>
-      <div class="mb3 mt3">
-      <%= f.submit "Add tag!", class: "btn btn-warning"%>
-      </div>
-
+      <%= f.submit "add tag", class: "red-button", id: "tag-button"%>
     </div>
-  </div>
   <% end %>
-</div>
