@@ -52,19 +52,63 @@
   height: 60px;
 }
 
-
-.cow-show-links {
+.cow-owner-controls {
   margin-top: 8px;
   display: flex;
-  gap: 8px;
-  justify-content: left;
+  flex-direction: column;
 }
-#edit-my-cow-btn, #cows-view-bookings-btn, #delete-my-cow-btn, #back-to-my-cows-btn {
+.my-cow-links {
+  display: flex;
+  gap: 8px;
+}
+#edit-my-cow-btn, #delete-my-cow-btn, #back-to-my-cows-btn {
   flex-grow: 1;
 }
+#cows-view-bookings-btn {
+  flex-grow: 2;
+}
 
-.cow-tags {
-  max-width: 800px;
-  margin: auto;
+.cow-tags-container {
+  margin: 0;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+.card-cow-tags {
+  display: flex;
+  gap: 8px;
+}
+.cow-tag {
+  color: $white;
+  background-color: $red;
+  border-radius: 16px;
+  height: 32px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+
+.add-tags-card {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
   justify-content: center;
+}
+.tag-text-field {
+  border: none;
+  border-radius: 16px 0 0 16px;
+  height: 32px;
+  color: $blue;
+  width: 150px;
+}
+.tag-text-field:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(29, 53, 87, 0.2);
+}
+#tag-button {
+  border: none;
+  width: 85px;
+  height: 32px;
+  border-radius: 0 16px 16px 0;
 }
