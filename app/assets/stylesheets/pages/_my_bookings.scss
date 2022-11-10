@@ -1,0 +1,83 @@
+// .cow-show-links .blue-button {
+//   flex-grow: 1;
+// }
+.booking-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 0 64px 0;
+  padding: 0;
+  list-style: none;
+  gap: 32px;
+}
+
+.booked-cow-card {
+  overflow: hidden;
+  background: $white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+.booked-cow-card > img {
+  height: 280px;
+  width: 100%;
+  object-fit: cover;
+}
+.booked-cow-card h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  padding-bottom: 0;
+  #booked-cow-name {
+    color: $red;
+  }
+}
+.booked-cow-card p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.booked-cow-infos {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex-grow: 3;
+}
+
+.booked-cow-owner-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.booked-cow-card-user {
+  width: 60px;
+  height: 60px;
+}
+
+.booked-cow-card-content {
+  display: flex;
+}
+.booked-cow-price {
+  min-width: 30%;
+  padding: 24px;
+  margin: 32px;
+  margin-right: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $navy;
+  border-radius: 16px;
+  color: $white;
+}
+
+.booked-cow-links {
+  display: flex;
+  gap: 8px;
+  justify-content: left;
+  margin: 0 0 24px 24px;
+}
+#edit-my-cow-btn, #cows-view-bookings-btn, #delete-my-cow-btn, #back-to-my-cows-btn {
+  flex-grow: 1;
+}

@@ -59,6 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_08_194528) do
     t.bigint "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cow_id", "tag_id"], name: "index_cow_tags_on_cow_id_and_tag_id", unique: true
     t.index ["cow_id"], name: "index_cow_tags_on_cow_id"
     t.index ["tag_id"], name: "index_cow_tags_on_tag_id"
   end
@@ -73,6 +74,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_08_194528) do
     t.bigint "user_id", null: false
     t.string "location"
     t.index ["user_id"], name: "index_cows_on_user_id"
+  end
+
+  create_table "cows_tags", id: false, force: :cascade do |t|
+    t.bigint "cow_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["tag_id", "cow_id"], name: "index_cows_tags_on_tag_id_and_cow_id"
   end
 
   create_table "tags", force: :cascade do |t|
