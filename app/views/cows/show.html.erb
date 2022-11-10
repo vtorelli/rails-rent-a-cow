@@ -22,16 +22,19 @@
         </div>
 
         <div class="cow-show-links">
-          <% if @cow.user_id == current_user.id %>
-            <%= render "tags/create_tag", cow: @cow, tag: @tag %>
-            <%# <br> %>
-            <%= link_to "edit my cow", edit_cow_path(@cow), class: "navy-button", id: "edit-my-cow-btn" %>
-            <%= link_to "#{@cow.name}'s bookings", "#", class: "blue-button", id: "cows-view-bookings-btn" %>
-            <%= link_to "delete my cow", cow_path(@cow), class: "light-blue-button", id: "delete-my-cow-btn", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-            <%= link_to "back to my cows", mycows_cows_path, class: "navy-button", id: "back-to-my-cows-btn" %>
-          <% else %>
-            <%= link_to "Book this cow !", new_cow_booking_path(@cow), class: "navy-button" %> <br>
+          <% if user_signed_in? %>
+            <% if @cow.user_id == current_user.id %>
+              <%= render "tags/create_tag", cow: @cow, tag: @tag %>
+              <%# <br> %>
+              <%= link_to "edit my cow", edit_cow_path(@cow), class: "navy-button", id: "edit-my-cow-btn" %>
+              <%= link_to "#{@cow.name}'s bookings", "#", class: "blue-button", id: "cows-view-bookings-btn" %>
+              <%= link_to "delete my cow", cow_path(@cow), class: "light-blue-button", id: "delete-my-cow-btn", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              <%= link_to "back to my cows", mycows_cows_path, class: "navy-button", id: "back-to-my-cows-btn" %>
+            <% else %>
+              <%= link_to "Book this cow !", new_cow_booking_path(@cow), class: "navy-button" %> <br>
+            <% end %>
           <% end %>
+
         </div>
       </div>
 

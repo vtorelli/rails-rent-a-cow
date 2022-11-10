@@ -1,6 +1,7 @@
 class CowsController < ApplicationController
   def index
-    @cows = Cow.all
+    @cows = policy_scope(Cow)
+    # @cows = Cow.all
   end
 
   def new
@@ -23,6 +24,7 @@ class CowsController < ApplicationController
   def show
     @cow = Cow.find(params[:id])
     @tag = Tag.new
+    # authorize @cow
   end
 
   def edit
