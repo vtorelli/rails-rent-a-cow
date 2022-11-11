@@ -99,25 +99,25 @@ puts " "
 puts "Creating the cows..."
 
 location_cows = [
-  "18, Rue Paul Doumer, Aubervilliers",
-  "25, Boulevard de Stalingrad, Malakoff",
-  "2bis, Rue Gustave Courbet, Champigny-sur-Marne",
-  "L'Alcazar, 1, Rue de la Station, Asnières-sur-Seine",
-  "236, Avenue de Saint-Étienne, Montbrison",
-  "1 bis, Rue Romain Rolland, Bonneuil-sur-Marne",
-  "13, Allée Gambetta, Le Raincy",
-  "6, Rue Roger Salengro, Fontenay-sous-Bois",
-  "11, Place Jean Grandel, Gennevilliers",
-  "12, Rue du Château, Asnières-sur-Seine",
-  "27 bis, Avenue des Limites, Villemomble",
-  "25, Boulevard des Alliés,  Choisy-le-Roi",
-  "10, Place de la République, Bagneux",
-  "24, Rue Perronet, Neuilly-sur-Seine",
-  "143, Rue Jules Guesde, Rosny-sous-Bois",
-  "5, Place du Comte de Bendern, La Celle-Saint-Cloud",
-  "10, Rue Léon Blum, L'Haÿ-les-Roses",
-  "74, Avenue de Gravelle, Charenton-le-Pont",
-  "8, Villa la Garenne, Le Perreux-sur-Marne"
+  "Gildehauserweg 37, Losser",
+  "Winkelcentrum Woensel 34, Eindhoven",
+  "Otelaarseweg 5, Barneveld",
+  "Stadhuisplein 10, Zoetermeer",
+  "Brugstraat 30, Gennep",
+  "Burgemeester van Grunsvenplein 109, Heerlen",
+  "Porthoslaan 185, Maastricht",
+  "Dorpsstraat 126 Heinkenszand",
+  "Grote Haarsekade 199, Gorinchem",
+  "Het Gebient 175, Tolbert",
+  "Gerard Doustraat 53, Den Haag",
+  "Junghuhnstraat 16, Rijswijk",
+  "Meester Rietkerklaan 41, Helmond",
+  "Entrada 167, Amsterdam",
+  "De Koele 196, Vroomshoop",
+  "De Wieken 17, Beers",
+  "Zomerdijk 175, Zwartsluis",
+  "Badweg 155, Epe",
+  "Randweg 123, Noordwijk"
 ]
 
 def faker_name()
@@ -131,7 +131,7 @@ images_cows.shuffle.each do |image|
 
   tmp_location = location_cows.sample
   location_cows.delete(tmp_location)
-  puts tmp_location
+  # puts tmp_location
 
   cow = Cow.new(
     name: faker_name,
@@ -147,7 +147,7 @@ images_cows.shuffle.each do |image|
   io: URI.open(image)
 )
 
-  puts "Created cow n.#{num}): #{cow.name}"
+  puts "Created cow n.(#{num}): #{cow.name} : #{tmp_location}"
   cow.save!
   num += 1
 
@@ -169,7 +169,6 @@ puts "Creating Bookings..."
 Booking.create!(
   start_date: "2022-02-02",
   duration: 2,
-  location: "Brussels",
   user: User.find_by(first_name: "Astrid"),
   cow: Cow.all[0]
 )
