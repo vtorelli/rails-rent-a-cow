@@ -1,40 +1,31 @@
 <div class="container mt-5">
   <h3>Add a Cow Mow Mow</h3>
-  <%= form_with model: cow do |f| %>
-  <div class="card">
+    <%= simple_form_for(cow) do |f| %>
+    <div class="card">
     <div class="card-body">
-      <div class="mb-3">
-        <%= f.label :name, {class: "form-label"} %>
-        <%= f.text_field :name, {class: "form-control"} %>
-      </div>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-
-      <div class="mb-3">
-        <%= f.label :description, {class: "form-label"} %>
-        <%= f.text_area :description, {class: "form-control"} %>
-      </div>
-
-      <div class="mb-3">
-        <%= f.label :location, {class: "form-label"} %>
-        <%= f.text_field :location, {class: "form-control"} %>
-      </div>
-
-      <div class="mb-3">
-        <%= f.label :price_per_day, {class: "form-label"} %>
-        <%= f.text_field :price_per_day, {class: "form-control"} %>
-      </div>
-
-      <div class="mb-3">
-        <%= f.label :photo, {class: "form-label"} %>
-        <%= f.file_field :photo, {class: "form-control"} %>
-      </div>
-
-      <br>
-      <div class="mb3 mt3">
-      <%= f.submit "Add Cow!", class: "btn btn-warning"%>
-      </div>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :location,
+        input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+      %>
+      <%= f.input :price_per_day %>
+      <%= f.input :photo %>
 
     </div>
-  </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-warning" %>
+    </div>
+    </div>
   <% end %>
+  </div>
+  <hr>
+
+
+
 </div>
