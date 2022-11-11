@@ -4,19 +4,35 @@
       <i class="fa-solid fa-cow hero-banner-logo"></i>
       <h1 class="fw-bold">RENT-A-COW</h1>
       <p>Need to mow your lawn? Filming a commercial? Need emotional support? Say no more!</p>
+
+      <div class="search-bar">
+        <div class="text-center">
+          <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+            <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "find a cow"
+            %>
+          <%= submit_tag "Search", class: "red-button", id: "search-btn-homepage" %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="page-content">
-  <% if user_signed_in? %>
-    <p class="user-greeting">Hello <%= current_user.first_name %>!</p>
-  <% else %>
+  <div class="user-greeting-banner">
+    <% if user_signed_in? %>
+      <p class="user-greeting">Hello <strong><%= current_user.first_name %></strong>!</p>
+    <% else %>
 
-  <p class="user-greeting">
-    Here are some cute cows, <%= link_to " log in ", new_user_session_path, class: "nav-link" %> to book a cow !
-  </p>
-  <% end %>
+    <p class="user-greeting">
+      Here are some cute cows, <%= link_to " log in ", new_user_session_path, class: "nav-link" %> to book a cow !
+    </p>
+    <% end %>
+  </div>
 
-  <%= render "shared/allcows", home: true %>
+
+  <div class="page-content">
+    <%= render "shared/allcows", home: true %>
+  </div>
 </div>

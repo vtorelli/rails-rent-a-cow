@@ -1,0 +1,15 @@
+  <%= form_with model: [cow, tag] do |f| %>
+    <div class="add-tags-card">
+      <div class="tag-box">
+        <%= f.text_field :name, placeholder: ' tag name', list: "tags_autocomplete", class: 'tag-text-field' %>
+        <datalist id="tags_autocomplete">
+          <% Tag.all.each do |tag| %>
+            <option value="<%= tag.name %>"></option>
+          <% end %>
+        </datalist>
+      </div>
+
+      <br>
+      <%= f.submit "add tag", class: "red-button", id: "tag-button"%>
+    </div>
+  <% end %>

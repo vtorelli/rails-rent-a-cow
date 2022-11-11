@@ -1,8 +1,10 @@
 <div class="wrapper">
-  <div class="container forms">
-    <h2>Log in</h2>
+  <div class="header-banner">
+    <h2>LOG IN</h2>
+  </div>
 
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
+  <div class="container forms" >
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
       <div class="form-inputs">
         <%= f.input :email,
                     required: false,
@@ -15,10 +17,10 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Log in", class: "sign-in-btn" %>
+        <%= f.button :submit, "LOG IN", class: "navy-button" %>
       </div>
     <% end %>
-
+    <br>
     <%= render "devise/shared/links" %>
   </div>
 

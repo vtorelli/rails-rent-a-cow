@@ -1,5 +1,6 @@
 class CowsController < ApplicationController
   def index
+
     @cows = Cow.all
     # The `geocoded` scope filters only cows with coordinates
     @markers = @cows.geocoded.map do |cow|
@@ -9,6 +10,7 @@ class CowsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: {cow: cow})
       }
     end
+
   end
 
   def new
@@ -31,6 +33,7 @@ class CowsController < ApplicationController
   def show
     @cow = Cow.find(params[:id])
     @tag = Tag.new
+    # authorize @cow
   end
 
   def edit
@@ -70,6 +73,7 @@ class CowsController < ApplicationController
   def cow_params
     params.require(:cow).permit(:name,
                                 :description,
+                                :location,
                                 :price_per_day,
                                 :photo,
                                 tags_attributes: [:name])

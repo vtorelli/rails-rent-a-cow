@@ -1,10 +1,9 @@
 .cards {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
+  max-width: 1024px;
+  margin: 0px auto;
   margin-top: 16px;
   margin-bottom: 16px;
   padding: 0;
@@ -20,8 +19,7 @@
   overflow: hidden;
   background: $white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 300px;
-  height: 280px;
+  min-height: 300px;
   border-radius: 16px;
   margin: 20px;
 
@@ -69,6 +67,13 @@
   align-items: center;
   position: relative;
   gap: 10px;
+
+  p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  }
 }
 .cow-card-infos .cow-card-user {
   position: absolute;
@@ -76,4 +81,23 @@
   top: -20px;
   width: 40px;
   height: 40px;
+}
+
+
+@media(max-width: 1024px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
