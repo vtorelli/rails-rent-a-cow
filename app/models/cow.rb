@@ -16,7 +16,7 @@ class Cow < ApplicationRecord
 
   # geocoded_by :address
   geocoded_by :location
-  after_validation :geocode, if: :will_save_change_to_address?
+  after_validation :geocode, if: :will_save_change_to_location?
 
   def add_tag(name)
     tag = Tag.find_or_create_by(name: name)
