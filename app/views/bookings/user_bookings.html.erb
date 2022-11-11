@@ -13,7 +13,7 @@
             <div class="booked-cow-infos">
               <h2>You booked <strong id="booked-cow-name"><%= booking.cow.name %></strong>, good choice! </h2>
 
-              <p><%= booking.duration %> days starting on <%= booking.start_date.strftime('%b %d, %Y') %> in <%= booking.location %></p>
+              <p><%= booking.duration %> days starting on <%= booking.start_date.strftime('%b %d, %Y') %> in <%= booking.cow.location %></p>
 
 
               <div class="booked-cow-owner-info">
