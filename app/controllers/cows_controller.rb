@@ -1,7 +1,16 @@
 class CowsController < ApplicationController
   def index
-    @cows = policy_scope(Cow)
-    # @cows = Cow.all
+
+    @cows = Cow.all
+    # The `geocoded` scope filters only cows with coordinates
+    @markers = @cows.geocoded.map do |cow|
+      {
+        lat: cow.latitude,
+        lng: cow.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {cow: cow})
+      }
+    end
+
   end
 
   def new
