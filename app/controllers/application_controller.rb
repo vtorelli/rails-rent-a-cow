@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   skip_before_action :authenticate_user!, only: [:home, :show]
 
   # Pundit: allow-list approach
-  after_action :verify_authorized, except: [:index, :show, :user_bookings, :mycows], unless: :skip_pundit?
-  after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
+  # after_action :verify_authorized, except: [:index, :show, :user_bookings, :mycows], unless: :skip_pundit?
+  # after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
