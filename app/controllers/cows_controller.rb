@@ -34,6 +34,14 @@ class CowsController < ApplicationController
     @cow = Cow.find(params[:id])
     @tag = Tag.new
     # authorize @cow
+
+    @markers =
+      [{
+        lat: @cow.latitude,
+        lng: @cow.longitude,
+        info_window: render_to_string(partial: "shared/info_window", locals: {cow: @cow})
+      }]
+
   end
 
   def edit
