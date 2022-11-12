@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     resources :tags, only: :create
 
   end
-
+  resources :tags, only: [] do
+    member do
+      get :cows
+    end
+  end
   get "bookings/user_bookings", to: "bookings#user_bookings", as: :user_bookings
 
   devise_for :users

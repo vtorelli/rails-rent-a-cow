@@ -1,0 +1,9 @@
+<div class="wrapper">
+  <div class="header-banner text-center">
+    <h1>#<%=Tag.where(id: params[:id])[0].name%></h1>
+  </div>
+
+  <div class="container-my-cows">
+    <%= render "shared/allcows" %>
+  </div>
+</div>

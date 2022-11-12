@@ -14,7 +14,7 @@
 
           <div class="card-cow-tags">
             <% @cow.tags.each do |tag| %>
-              <p class="cow-tag"> <%= tag.name %> </p>
+              <p class="cow-tag"> <%= link_to tag.name, cows_tag_path(tag) %> </p>
             <% end %>
           </div>
 
