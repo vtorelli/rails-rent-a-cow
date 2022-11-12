@@ -11,6 +11,13 @@
     color: $white;
   }
 }
+.cow-tag:hover {
+  background-color: $navy;
+
+  a {
+    color: $white;
+  }
+}
 
 .add-tags-card {
   margin-bottom: 24px;
