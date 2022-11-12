@@ -1,5 +1,8 @@
 <h2><%= cow.name %></h2>
+
 <% if cow.photo.key %>
+  <%= link_to cow_path(cow)  do %>
   <%= cl_image_tag cow.photo.key, crop: :fill, width: 100 %>
+  <% end %>
 <% end %>
 <p><%= cow.location %></p>
