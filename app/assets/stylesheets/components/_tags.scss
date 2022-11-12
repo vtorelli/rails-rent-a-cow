@@ -6,8 +6,11 @@
   padding: 8px;
   display: flex;
   align-items: center;
-}
 
+  a {
+    color: $white;
+  }
+}
 
 .add-tags-card {
   margin-bottom: 24px;
