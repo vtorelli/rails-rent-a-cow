@@ -17,6 +17,9 @@
           <%= link_to "CONTACT", "#", class: "nav-link" %>
         </li>
         <% if user_signed_in? %>
+            <li class="nav-item">
+            <%= link_to "ADD A COW", new_cow_path, class: "nav-link", id: "login-navbar-user-name" %>
+          </li>
           <li class="nav-item">
             <%= link_to current_user.first_name.upcase, "#", class: "nav-link", id: "login-navbar-user-name" %>
           </li>
