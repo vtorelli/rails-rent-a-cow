@@ -82,3 +82,20 @@
   color: $white;
   background-color: $red;
 }
+
+
+.update-create-btn {
+  border-radius: 8px;
+  background-color: $navy;
+  height: 50px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+}
+
+.update-create-btn:hover {
+  color: $white;
+  background-color: $red;
+}
