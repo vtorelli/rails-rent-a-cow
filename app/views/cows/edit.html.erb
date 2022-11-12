@@ -11,7 +11,10 @@
     <%= simple_form_for(@cow) do |f| %>
       <%= f.input :name  %>
       <%= f.input :description  %>
-      <%= f.input :location  %>
+      <%= f.input :location,
+        input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+      %>
       <%= f.input :price_per_day  %>
       <%= f.input :photo, as: :file %>
       <%= f.submit %>
