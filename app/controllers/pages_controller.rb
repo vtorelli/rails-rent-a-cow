@@ -14,6 +14,7 @@ class PagesController < ApplicationController
       @cows = Cow.all
     end
 
+
     @markers = @cows.geocoded.map do |cow|
       {
         lat: cow.latitude,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_11_120849) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_11_161330) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_11_120849) do
     t.bigint "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cow_id", "tag_id"], name: "index_cow_tags_on_cow_id_and_tag_id", unique: true
     t.index ["cow_id"], name: "index_cow_tags_on_cow_id"
     t.index ["tag_id"], name: "index_cow_tags_on_tag_id"
   end
@@ -66,15 +67,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_11_120849) do
     t.string "name"
     t.text "description"
     t.integer "price_per_day"
-    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.string "location"
     t.float "latitude"
     t.float "longitude"
     t.string "address"
-    t.string "location"
+    t.string "city"
     t.index ["user_id"], name: "index_cows_on_user_id"
+  end
+
+  create_table "cows_tags", id: false, force: :cascade do |t|
+    t.bigint "cow_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["tag_id", "cow_id"], name: "index_cows_tags_on_tag_id_and_cow_id"
   end
 
   create_table "tags", force: :cascade do |t|
