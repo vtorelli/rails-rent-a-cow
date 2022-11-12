@@ -16,6 +16,11 @@ class TagsController < ApplicationController
     end
   end
 
+  def cows
+    # raise
+    @cows = Cow.joins(:cow_tags, :tags).where(tags: { id: params[:id] }).distinct
+  end
+
   private
 
   def tag_params
