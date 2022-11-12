@@ -1,12 +1,14 @@
 .mapboxgl-ctrl-geocoder--input {
   max-width: none;
   width: 100%;
-  border: 1px solid lightgrey;
-  box-shadow: none;
-  background-color: #F4F4F4;
+  border: none;
+  box-shadow: 0 0 8px rgba(29, 53, 87, 0.2);
+  background-color: $white;
 
-  border-radius: 24px 0 0 24px;
+  border-radius: 24px 24px 24px 24px;
   border: none;
   font-size: 16px;
-  height: 40px;
+  height: 30px;
+
+  color: rgb(141, 141, 141);
 }
