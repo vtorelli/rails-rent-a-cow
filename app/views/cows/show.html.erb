@@ -4,13 +4,7 @@
     <div class="card-individual-cow">
       <%= cl_image_tag @cow.photo.key %>
       <div class="cow-details">
-           <div class="individual-cow-map" style="width: 100%; height: 600px;"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
         <div class="cow-tags-container">
-
 
           <div class="card-cow-tags">
             <% @cow.tags.each do |tag| %>
@@ -42,6 +36,12 @@
         <div class="cow-owner-info">
           <%= image_tag "user.png", class: "card-individual-cow-user" %>
           <p>This cow is owned by <a href="#"><%= @cow.user.first_name %></a></p>
+        </div>
+
+        <div class="individual-cow-map"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
 
         <div class="cow-owner-controls">

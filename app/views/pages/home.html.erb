@@ -31,13 +31,16 @@
     <% end %>
   </div>
 
-  <div class="map-container"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
   <div class="page-content">
+    <div class="index-map">
+      <h3>find cows near you</h3>
+      <div class="map-container"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+
     <%= render "shared/allcows", home: true %>
   </div>
 </div>
