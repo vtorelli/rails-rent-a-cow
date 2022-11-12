@@ -42,3 +42,19 @@
   height: 32px;
   border-radius: 0 16px 16px 0;
 }
+
+
+.index-card-cow-tags {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+}
+.index-cow-tag {
+  color: $white !important;
+  background-color: $red;
+  border-radius: 16px;
+  height: 32px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}

@@ -1,4 +1,3 @@
-
 <ul class="cards">
   <% @cows.each do |cow| %>
     <%= link_to cow_path(cow), class:"text-decoration-none" do %>
@@ -14,6 +13,11 @@
           <h3 class="cow-card-pricing"><%= cow.price_per_day %>€</h3>
           <%= image_tag "user.png", class: "cow-card-user avatar-bordered" %>
         </div>
+        <div class="index-card-cow-tags">
+          <% cow.tags[0..2].each do |tag| %>
+          <p class="index-cow-tag"> <%= tag.name %> </p>
+           <% end %>
+      </div>
       </div>
     <% end %>
   <% end %>
