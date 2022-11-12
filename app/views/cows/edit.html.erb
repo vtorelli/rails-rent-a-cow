@@ -1,26 +1,30 @@
+<br>
 <div class="wrapper">
   <div class="container">
-    <div class="edit-cow-banner"
-      style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cow.photo.key %>')"
-    >
-      <h1 class="text-uppercase fw-bolder"><%= @cow.name %></h1>
+    <h2>Edit a Cow Mow Mow</h2>
+    <div class="card">
+      <div class="card-body">
+        <div class="edit-cow-banner mb-3"
+             style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cow.photo.key %>')"
+        >
+        <h1 class="text-uppercase fw-bolder"><%= @cow.name %></h1>
+      </div>
+
+        <%= simple_form_for(@cow) do |f| %>
+          <%= f.input :name  %>
+          <%= f.input :description  %>
+          <%= f.input :location,
+            input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+            wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+          %>
+          <%= f.input :price_per_day  %>
+          <%= f.input :photo, as: :file %>
+          <div class="my-cow-links">
+            <%= f.button :submit, class: "navy-button"%>
+            <%= link_to "Back to My Cows", cow_path(@cow), class: "blue-button" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-
-
-  <div class="edit-cow-form">
-    <%= simple_form_for(@cow) do |f| %>
-      <%= f.input :name  %>
-      <%= f.input :description  %>
-      <%= f.input :location,
-        input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-        wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-      %>
-      <%= f.input :price_per_day  %>
-      <%= f.input :photo, as: :file %>
-      <%= f.submit %>
-    <% end %>
-  </div>
-
-    <%= link_to "Back to My Cows", cow_path(@cow) %>
   </div>
 </div>
