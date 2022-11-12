@@ -4,7 +4,7 @@
     <div class="card-individual-cow">
       <%= cl_image_tag @cow.photo.key %>
       <div class="cow-details">
-           <div style="width: 100%; height: 600px;"
+           <div class="individual-cow-map" style="width: 100%; height: 600px;"
             data-controller="map"
             data-map-markers-value="<%= @markers.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -19,8 +19,10 @@
           </div>
 
           <div>
-            <% if @cow.user_id == current_user.id %>
-              <%= render "tags/create_tag", cow: @cow, tag: @tag %>
+            <% if user_signed_in? %>
+              <% if @cow.user_id == current_user.id %>
+                <%= render "tags/create_tag", cow: @cow, tag: @tag %>
+              <% end %>
             <% end %>
           </div>
         </div>
