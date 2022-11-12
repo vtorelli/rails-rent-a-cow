@@ -104,7 +104,7 @@ location_cows = [
   "Otelaarseweg 5, Barneveld",
   "Stadhuisplein 10, Zoetermeer",
   "Brugstraat 30, Gennep",
-  "Burgemeester van Grunsvenplein 109, Heerlen",
+  "Sint Jansberg 144, Drachten",
   "Porthoslaan 185, Maastricht",
   "Dorpsstraat 126 Heinkenszand",
   "Grote Haarsekade 199, Gorinchem",
