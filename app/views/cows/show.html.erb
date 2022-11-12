@@ -25,7 +25,11 @@
           <div>
             <h2 class="text-uppercase fw-bolder"><%= @cow.name %></h2>
             <p><%= @cow.description %></p>
-            <p><%= @cow.location %></p>
+            <div class="cow-location">
+              <i class="fa-solid fa-location-dot"></i>
+              <p><%= @cow.location %></p>
+            </div>
+
           </div>
 
           <h2 class="card-individual-cow-pricing">
